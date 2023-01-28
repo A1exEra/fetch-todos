@@ -47,3 +47,7 @@ form button {
   margin: 10px 0px;
   padding: 5px;
 }
+#msg-error {
+  display: none;
+  color: red;
+}

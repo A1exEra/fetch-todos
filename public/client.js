@@ -2,12 +2,14 @@
   const form = document.getElementById("form");
   const input = document.getElementById("todo-input");
   const todoList = document.querySelector(".todos ul");
+  const error = document.querySelector("#msg-error");
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const res = await fetch("/", {
+    error.style.display = "none";
+    const res = await fetch("/addTodo", {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        // Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ todo: input.value }),
@@ -24,9 +26,16 @@
     //   input.value = "";
     // });
     const json = await res.json();
-    const li = document.createElement("li");
-    li.innerHTML = json.todo;
-    todoList.prepend(li);
+    if (res.status === 200) {
+      const li = document.createElement("li");
+      li.innerText = json.todo;
+      todoList.prepend(li);
+      input.value = "";
+    } else {
+      error.style.display = "block";
+      error.innerHTML = json.msg;
+    }
+    console.log("This is the client response");
   });
   console.log("Script.js is working!");
 })();

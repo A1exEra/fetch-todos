@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <!-- <script defer src="../Public/client.javascript" type="text/js"></script> -->
+    <script defer src="/client.js"></script>
     <title>REST_TEST</title>
   </head>
   <body>
     <h1>Jacked Up And Good To Go</h1>
-    <form id="form">
+    <form id="form" action="/" method="post">
       <input
         id="todo-input"
         type="text"
@@ -18,6 +18,7 @@
         name="todo"
       />
       <button type="submit">ADD</button>
+      <span id="msg-error"></span>
     </form>
     <div class="todos">
       <ul>
