@@ -14,17 +14,6 @@
       },
       body: JSON.stringify({ todo: input.value }),
     });
-    // .then((res) => {
-    //   res.json();
-    //   console.log("this is the res.json - ", res.json());
-    // })
-    // .then((data) => {
-    //   console.log("thsi is the data", data);
-    //   const newTodo = document.createElement("li");
-    //   newTodo.innerText = data.todo;
-    //   todoList.prepend(newTodo);
-    //   input.value = "";
-    // });
     const json = await res.json();
     if (res.status === 200) {
       const li = document.createElement("li");
